@@ -1,29 +1,21 @@
 <template>
+<!-- //  此组件为最大的组件 根组件 -->
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+
+  <router-view></router-view>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+// 在这里面写样式可以控制到其他组件 可以写一些公共类
+ * {
+   margin: 0;
+   padding: 0;
+ }
+ html,
+ body,
+ #app {
+   width: 100%;
+   height: 100%;
+ }
 </style>
