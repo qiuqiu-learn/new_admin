@@ -80,10 +80,12 @@ export default {
         // axios 另外的写法
         axios.post('http://localhost:8888/api/private/v1/login', this.form).then(res => {
           // 解构meta
-          const { meta } = res.data
+          const { meta, data } = res.data
           // 成功时做的
           if (meta.status === 200) {
-            // console.log(meta.msg)
+            // console.log(data)
+            // 登录成功时把token存入本地
+            localStorage.setItem('token', data.token)
             // 成功提示
             this.$message({
               message: meta.msg,
