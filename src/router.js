@@ -3,6 +3,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './components/Login.vue'
 import Index from './components/index.vue'
+import Users from './components/users.vue'
+import Rights from './components/rights.vue'
+import Roles from './components/roles.vue'
+
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 Vue.use(Router)
 //  用router实例管理路由,方便守卫调用router路由
@@ -15,7 +23,12 @@ const router = new Router({
     {
       path: '/index',
       name: 'index',
-      component: Index
+      component: Index,
+      children: [
+        { path: '/users', component: Users },
+        { path: '/rights', component: Rights },
+        { path: '/roles', component: Roles }
+      ]
     },
     {
       path: '/login',

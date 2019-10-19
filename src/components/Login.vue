@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   data () {
     return {
@@ -78,9 +77,9 @@ export default {
         //   }
         // })
         // axios 另外的写法
-        axios.post('http://localhost:8888/api/private/v1/login', this.form).then(res => {
+        this.$axios.post('login', this.form).then(res => {
           // 解构meta
-          const { meta, data } = res.data
+          const { meta, data } = res
           // 成功时做的
           if (meta.status === 200) {
             // console.log(data)
